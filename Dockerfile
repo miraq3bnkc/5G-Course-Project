@@ -5,7 +5,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy the video file into the container (if necessary)
-COPY video.mp4 /usr/share/nginx/html
+COPY *.mp4 /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
