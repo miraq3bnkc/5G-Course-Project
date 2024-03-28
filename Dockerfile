@@ -4,8 +4,5 @@ FROM nginx:alpine
 # Copy custom Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy the video file into the container (if necessary)
-COPY *.mp4 /usr/share/nginx/html/video
-
 # Expose port 80
 EXPOSE 80
