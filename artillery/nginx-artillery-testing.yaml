@@ -1,0 +1,14 @@
+config:
+  target: http://192.168.43.179:8080
+  phases:
+     - duration: 60
+       arrivalCount: 30
+  plugins:
+    ensure: {}
+    apdex: {}
+    metrics-by-endpoint: {}     
+scenarios:
+  - flow:
+    - get: 
+        url: '/' 
+    - think: 2min     
