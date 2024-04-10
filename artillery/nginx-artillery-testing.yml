@@ -1,8 +1,9 @@
 config:
-  target: http://192.168.43.179:8080
+  target: http://localhost:8080
   phases:
      - duration: 60
-       arrivalCount: 30
+       arrivalCount: 10
+       name:  Load Test
   plugins:
     ensure: {}
     apdex: {}
