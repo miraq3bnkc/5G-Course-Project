@@ -1,8 +1,9 @@
 config:
-  target: http://192.168.43.179:8080
+  target: http://localhost:8080
   phases:
      - duration: 60
        arrivalCount: 30
+       name: Minimum
   plugins:
     ensure: {}
     apdex: {}
@@ -11,4 +12,7 @@ scenarios:
   - flow:
     - get: 
         url: '/' 
+        headers:
+          Range: 'bytes=0-999999'  # Specify the byte range you want to request
+
     - think: 2min     
