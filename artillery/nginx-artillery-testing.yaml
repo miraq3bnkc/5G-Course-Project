@@ -1,18 +1,19 @@
 config:
   target: http://localhost:8080
   phases:
-     - duration: 60
-       arrivalCount: 30
+     - duration: 600
+       arrivalCount: 50
        name: Minimum
   plugins:
     ensure: {}
     apdex: {}
-    metrics-by-endpoint: {}     
+    metrics-by-endpoint: {} 
+    expect:
+      reportFailuresAsErrors: true
+      outputFormat: prettyError    
 scenarios:
   - flow:
     - get: 
         url: '/' 
         headers:
-          Range: 'bytes=0-999999'  # Specify the byte range you want to request
-
-    - think: 2min     
+          Range: 'bytes=0-104857599'  # byte range to request 100MB
