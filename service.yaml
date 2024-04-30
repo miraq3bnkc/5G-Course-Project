@@ -4,9 +4,9 @@ metadata:
   name: nginx-video-streaming
 spec:
   selector:
-    app: nginx-video-streaming
+    app: nginx-stream
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: NodePort
+  type: LoadBalancer
