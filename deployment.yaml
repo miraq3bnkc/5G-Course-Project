@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-stream
+  name: nginx-video-streaming
   labels:
-    app: nginx-stream
+    app: nginx-video-streaming
 spec:
   replicas: 3  # Specify the number of replicas you want
   selector:
     matchLabels:
-      app: nginx-stream
+      app: nginx-video-streaming
   template:
     metadata:
       labels:
-        app: nginx-stream
+        app: nginx-video-streaming
     spec:
       containers:
       - name: nginx
         imagePullPolicy: IfNotPresent 
-        image: nginx-stream  # Docker image name
+        image: nginx-video-streaming  # Docker image name
         ports:
         - containerPort: 80

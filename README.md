@@ -37,7 +37,7 @@ https://www.artillery.io/docs/get-started/get-artillery
 3. **Κατασκευάστε την εικόνα Docker**:
     - Κατασκευάστε την εικόνα Docker για την υπηρεσία ροής βίντεο με Nginx χρησιμοποιώντας το παρεχόμενο Dockerfile.
     ```shell
-    docker build -t nginx-stream .
+    docker build -t nginx-video-streaming .
     ```
 
 4. **Εφαρμόστε την εφαρμογή (Deployment)**:
@@ -50,7 +50,7 @@ https://www.artillery.io/docs/get-started/get-artillery
 5. **Λάβετε το URL της υπηρεσίας**:
     - Βρείτε το URL για την υπηρεσία ροής βίντεο με Nginx.
     ```shell
-    minikube service nginx-stream --url
+    minikube service nginx-video-streaming --url
     ```
 
 6. **Επαληθεύστε την υπηρεσία**:

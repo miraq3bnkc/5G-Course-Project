@@ -4,7 +4,7 @@ metadata:
   name: nginx-video-streaming
 spec:
   selector:
-    app: nginx-stream
+    app: nginx-video-streaming
   ports:
   - protocol: TCP
     port: 80
