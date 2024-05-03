@@ -1,0 +1,19 @@
+config:
+  target: http://10.99.67.216/
+  http:
+    timeout: 30
+  phases:
+     - duration: 60
+       arrivalCount: 30
+       name: Minimum
+  plugins:
+    ensure: {}
+    apdex: {}
+    metrics-by-endpoint: {} 
+    expect:
+      reportFailuresAsErrors: true
+      outputFormat: prettyError    
+scenarios:
+  - flow:
+    - get: 
+        url: '/' 
