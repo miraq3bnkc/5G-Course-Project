@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nginx-monitor
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: nginx-video-streaming
+  namespaceSelector:
+    matchNames:
+    - default
+  endpoints:
+  - port: '9113'
+    interval: 30s

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx-video-streaming
 spec:
-  replicas: 3  # Specify the number of replicas you want
+  replicas: 10  # Specify the number of replicas you want
   selector:
     matchLabels:
       app: nginx-video-streaming
@@ -20,3 +20,9 @@ spec:
         image: nginx-video-streaming  # Docker image name
         ports:
         - containerPort: 80
+      - name: nginx-exporter
+        image: nginx/nginx-prometheus-exporter:latest
+        args:
+        - -nginx.scrape-uri=http://localhost:80/stub_status
+        ports:
+        - containerPort: 9113

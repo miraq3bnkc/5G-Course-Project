@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s  # Default scrape interval, overridden by specific job settings
+
+scrape_configs:
+  - job_name: 'nginx'
+    metrics_path: /metrics
+    static_configs:
+      - targets: [localhost:9113]

@@ -1,10 +1,8 @@
 config:
-  target: http://10.99.67.216/
-  http:
-    timeout: 30
+  target: http://10.100.97.116/
   phases:
      - duration: 60
-       arrivalCount: 30
+       arrivalCount: 20
        name: Minimum
   plugins:
     ensure: {}
@@ -15,5 +13,9 @@ config:
       outputFormat: prettyError    
 scenarios:
   - flow:
-    - get: 
-        url: '/' 
+    - loop:
+        - get:
+            url: '/'
+            headers:
+              Range: 'bytes=0-1000000'  # Specify the byte range you want to request
+      count: 10
