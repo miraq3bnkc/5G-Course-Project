@@ -11,5 +11,5 @@ spec:
     matchNames:
     - default
   endpoints:
-  - port: '9113'
+  - port: metrics
     interval: 30s

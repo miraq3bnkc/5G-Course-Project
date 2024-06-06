@@ -20,9 +20,5 @@ spec:
         image: nginx-video-streaming  # Docker image name
         ports:
         - containerPort: 80
-      - name: nginx-exporter
-        image: nginx/nginx-prometheus-exporter:latest
-        args:
-        - -nginx.scrape-uri=http://localhost:80/stub_status
-        ports:
         - containerPort: 9113
+

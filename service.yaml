@@ -6,7 +6,12 @@ spec:
   selector:
     app: nginx-video-streaming
   ports:
-  - protocol: TCP
+  - name: web
     port: 80
     targetPort: 80
+    protocol: TCP
+  - name: metrics
+    port: 9113
+    targetPort: 9113
+    protocol: TCP
   type: LoadBalancer
