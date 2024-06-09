@@ -85,7 +85,8 @@ artillery run -o nginx-pseudo-streaming-report.json nginx-artillery-testing.yaml
     cd ../grafana
     kubectl apply -f grafana.yaml
     ```
-    όπου με τον ίδιο τρόπο που συνδεθήκαμε πριν στο prometheus , αντιστοιχα συνδεόμαστε στην θύρα 3000, default κωδικός και όνομα χρηση στο grafana είναι admin και admin
+    όπου με τον ίδιο τρόπο που συνδεθήκαμε πριν στο prometheus , αντιστοιχα συνδεόμαστε στην θύρα 3000, default κωδικός και όνομα χρηση στο grafana είναι admin και admin. Έγινε χρήση του [Official NOde Prometheus Exporter Dashboard](https://grafana.com/grafana/dashboards/12708-nginx/) για την απεικόνηση των μετρικών. 
+
 
 Τώρα έχετε μια πλήρως λειτουργική υπηρεσία ροής βίντεο με Nginx που τρέχει στο cluster σας με Minikube.
 
