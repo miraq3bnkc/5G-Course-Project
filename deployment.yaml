@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx-video-streaming
 spec:
-  replicas: 10  # Specify the number of replicas you want
+  replicas: 3  # Specify the number of replicas you want
   selector:
     matchLabels:
       app: nginx-video-streaming
