@@ -1,12 +1,15 @@
 config:
-  target: http://10.100.97.116/
+  target: http://10.103.49.18/
+  http:
+    # Responses have to be sent within 30 seconds, or an `ETIMEDOUT` error gets raised.
+    timeout: 30
   phases:
      - duration: 60
-       arrivalCount: 20
+       arrivalCount: 200
        name: Minimum
   plugins:
     ensure: {}
-    apdex: {}
+    apdex: 2500
     metrics-by-endpoint: {} 
     expect:
       reportFailuresAsErrors: true
@@ -17,5 +20,5 @@ scenarios:
         - get:
             url: '/'
             headers:
-              Range: 'bytes=0-1000000'  # Specify the byte range you want to request
-      count: 10
+              Range: 'bytes=0-7500000'  # Specify the byte range you want to request
+      count: 25
