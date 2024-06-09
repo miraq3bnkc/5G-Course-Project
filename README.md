@@ -4,12 +4,14 @@ https://www.artillery.io/docs/get-started/get-artillery
 
 Για να τρέξει το load test και να φτιάξει report είναι το εξής (να το τρέξεις από το terminal του artillery φακέλου):
 
-% artillery run -o nginx-pseudo-streaming-report.json nginx-artillery-testing.yaml
-
+```shell
+artillery run -o nginx-pseudo-streaming-report.json nginx-artillery-testing.yaml
+```
 Για να φτιάξει το html αρχείο, που φαίνεται καλύτερο τα στοιχεία
 
+```shell
 % artillery report nginx-pseudo-streaming-report.json 
-
+```
 
 # Scaling a Dockerized Nginx Video Streaming Service with Kubernetes
 
@@ -58,6 +60,32 @@ https://www.artillery.io/docs/get-started/get-artillery
     ```shell
     kubectl get service
     ```
+
+7. **Δοκιμαστική Χρήση Prometheus με Grafana για nginx metrics με nginx-prometheus-exporter**:
+    - Δημιουργία του Prometheus Server, με την βοηθεια του [Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/getting-started.md). Μετα την εγκατάσταση του operator κάνουμε deploy όλα τα manifest που χρειάζονται για την παρακολουθηση των nginx μετρικών που περιγραφονται και στην σελίδα του [nginx-prometheus-exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
+    
+    - Deploy ενός manifest servicemonitor από την μερία του nginx 
+
+    ```shell
+    kubectl apply -f nginx-monitor.yaml
+    ```
+    - Deploy manifests από την μεριά του prometheus operator
+
+    ```shell
+    cd prometheus_operator
+    kubectl apply -f prom_rbac.yaml
+    kubectl apply -f prometheus-service.yaml
+    kubectl apply -f prometheus.yaml
+    ```
+    Μπορούμε να συνδεθούμε στο Prometheus Server με localhost:[EXTERNAL-IP]:9090/ , όπου EXTERNAL-IP την βλέπουμε τρέχοντας την εντολή "kubectl get services" στο service "prometheus-service".
+
+    - Deploy manifest ενος grafana server για την οπτικοποίηση των μετρικών που γίνονται scrape με γραφικές παραστάσεις. 
+
+    ```shell
+    cd ../grafana
+    kubectl apply -f grafana.yaml
+    ```
+    όπου με τον ίδιο τρόπο που συνδεθήκαμε πριν στο prometheus , αντιστοιχα συνδεόμαστε στην θύρα 3000, default κωδικός και όνομα χρηση στο grafana είναι admin και admin
 
 Τώρα έχετε μια πλήρως λειτουργική υπηρεσία ροής βίντεο με Nginx που τρέχει στο cluster σας με Minikube.
 
