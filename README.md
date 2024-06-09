@@ -10,7 +10,7 @@ artillery run -o nginx-pseudo-streaming-report.json nginx-artillery-testing.yaml
 Για να φτιάξει το html αρχείο, που φαίνεται καλύτερο τα στοιχεία
 
 ```shell
-% artillery report nginx-pseudo-streaming-report.json 
+artillery report nginx-pseudo-streaming-report.json 
 ```
 
 # Scaling a Dockerized Nginx Video Streaming Service with Kubernetes
